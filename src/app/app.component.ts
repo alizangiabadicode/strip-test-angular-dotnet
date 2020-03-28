@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
   async ngOnInit() {
-    const stripe = await loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+    const stripe = await loadStripe('pk_test_sBEEea7pLzlT5ddJqCxHo9ra00m9b5GJx9');
     // Set up Stripe.js and Elements to use in checkout form
     var style = {
       base: {
@@ -40,12 +40,12 @@ export class AppComponent implements OnInit {
     ).subscribe(
       (n: any) => {
         alert("client secret is returned")
-        this.http.post('http://localhost:5000/stripe/pay/'+n.id+"/confirm", {})
-        .subscribe(
-          n => {
-            alert('successfull confirm')
-          }
-        )
+        // this.http.post('http://localhost:5000/stripe/pay/'+n.id+"/confirm", {})
+        // .subscribe(
+        //   n => {
+        //     alert('successfull confirm')
+        //   }
+        // )
         var form = document.getElementById('payment-form');
 
         form.addEventListener('submit', function (ev) {
