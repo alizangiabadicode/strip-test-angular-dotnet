@@ -38,6 +38,8 @@ namespace server
 
             app.UseRouting();
 
+            app.UseCors(e => e.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

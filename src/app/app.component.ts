@@ -39,7 +39,13 @@ export class AppComponent implements OnInit {
       'http://localhost:5000/stripe/pay'
     ).subscribe(
       (n: any) => {
-        alert("client secret got")
+        alert("client secret is returned")
+        this.http.post('http://localhost:5000/stripe/pay/'+n.id+"/confirm", {})
+        .subscribe(
+          n => {
+            alert('successfull confirm')
+          }
+        )
         var form = document.getElementById('payment-form');
 
         form.addEventListener('submit', function (ev) {
@@ -71,6 +77,7 @@ export class AppComponent implements OnInit {
       },
       (e) => {
         alert("exeption occured")
+        console.log(e)
       }
     )
 
