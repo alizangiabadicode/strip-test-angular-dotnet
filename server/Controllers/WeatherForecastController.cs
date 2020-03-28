@@ -28,16 +28,16 @@ namespace server.Controllers {
             return Ok (new { client_secret = paymentIntent.ClientSecret, id = paymentIntent.Id });
         }
 
-        [HttpPost ("pay/{id}/confirm")]
-        public IActionResult ConfirmPaymentIntent (string id) {
-            StripeConfiguration.ApiKey = "sk_test_sd6hLSzaaSdWchuLII5rcYI700nJV5t5ee";
-            var service = new PaymentIntentService ();
-            var options2 = new PaymentIntentConfirmOptions {
-                PaymentMethod = "pm_card_visa",
-            };
-            var paymentIntent = service.Confirm (id, options2);
-            return Ok ();
-        }
+        // [HttpPost ("pay/{id}/confirm")]
+        // public IActionResult ConfirmPaymentIntent (string id) {
+        //     StripeConfiguration.ApiKey = "sk_test_sd6hLSzaaSdWchuLII5rcYI700nJV5t5ee";
+        //     var service = new PaymentIntentService ();
+        //     var options2 = new PaymentIntentConfirmOptions {
+        //         PaymentMethod = "pm_card_visa",
+        //     };
+        //     var paymentIntent = service.Confirm (id, options2);
+        //     return Ok ();
+        // }
         private static readonly string[] Summaries = new [] {
             "Freezing",
             "Bracing",
